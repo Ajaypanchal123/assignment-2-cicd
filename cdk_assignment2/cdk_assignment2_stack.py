@@ -1,9 +1,11 @@
 from aws_cdk import (
+    RemovalPolicy,
     Stack,
     aws_s3 as s3,
     aws_lambda as _lambda,
     aws_dynamodb as dynamodb,
     aws_apigateway as apigateway
+    
 )
 from constructs import Construct
 class CdkAssignment2Stack(Stack):
@@ -13,7 +15,8 @@ class CdkAssignment2Stack(Stack):
 
         # Define an S3 bucket
         s3_bucket = s3.Bucket(self, "PunitDariraAssignment2Bucket",
-                              versioned=True)
+                              versioned=True,
+                              removal_policy=RemovalPolicy.DESTROY)
 
         # Define a Lambda function
         lambda_function = _lambda.Function(self, "PunitDariraAssignment2Lambda",
@@ -30,7 +33,8 @@ class CdkAssignment2Stack(Stack):
         dynamo_table = dynamodb.Table(self, "PunitDariraAssignment2Table",
                                       partition_key=dynamodb.Attribute(
                                           name="id",
-                                          type=dynamodb.AttributeType.STRING))
+                                          type=dynamodb.AttributeType.STRING),
+                                          removal_policy=RemovalPolicy.DESTROY)
 
         # Define an API Gateway to trigger the Lambda function
         api = apigateway.LambdaRestApi(self, "MyApi",
