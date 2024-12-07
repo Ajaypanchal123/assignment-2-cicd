@@ -12,7 +12,7 @@ class CdkAssignment2Stack(Stack):
     def __init__(self, scope: Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
-        # Define an S3 bucket
+        # Define an S3 bucket 
         s3_bucket = s3.Bucket(self, "PunitDariraAssignment2Bucket",
                               versioned=True,
                               removal_policy=RemovalPolicy.DESTROY)
