@@ -6,7 +6,7 @@ from aws_cdk import (
     aws_dynamodb as dynamodb,
     aws_apigateway as apigateway
 )
-from constructs import Construct
+from constructs import Construct 
 class CdkAssignment2Stack(Stack):
 
     def __init__(self, scope: Construct, id: str, **kwargs) -> None:
