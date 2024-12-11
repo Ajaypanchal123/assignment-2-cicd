@@ -13,12 +13,12 @@ class CdkAssignment2Stack(Stack):
         super().__init__(scope, id, **kwargs)
 
         # Define an S3 bucket 
-        s3_bucket = s3.Bucket(self, "PunitDariraAssignment2Bucket",
+        s3_bucket = s3.Bucket(self, "ajaypanchalassignment2Bucket",
                               versioned=True,
                               removal_policy=RemovalPolicy.DESTROY)
 
         # Define a Lambda function
-        lambda_function = _lambda.Function(self, "PunitDariraAssignment2Lambda",
+        lambda_function = _lambda.Function(self, "ajaypanchalassignment2Lambda",
                                            runtime=_lambda.Runtime.NODEJS_LATEST,
                                            handler="index.handler",
                                            code=_lambda.Code.from_inline(
@@ -29,7 +29,7 @@ class CdkAssignment2Stack(Stack):
                                            ))
 
         # Define a DynamoDB table
-        dynamo_table = dynamodb.Table(self, "PunitDariraAssignment2Table",
+        dynamo_table = dynamodb.Table(self, "ajaypanchalassignment2Table",
                                       partition_key=dynamodb.Attribute(
                                           name="id",
                                           type=dynamodb.AttributeType.STRING),
